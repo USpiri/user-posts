@@ -8,9 +8,8 @@ describe('LoginFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [LoginFormComponent]
-    })
-    .compileComponents();
+      imports: [LoginFormComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(LoginFormComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,24 @@ describe('LoginFormComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should show error on invalid inputs', () => {
+    component.form.setValue({ email: '', password: '' });
+
+    expect(component.form.valid).toBeFalse();
+    expect(
+      fixture.nativeElement.querySelectorAll('.ng-invalid').length,
+    ).toBeGreaterThan(0);
+  });
+
+  it('should not show error on valid inputs', () => {
+    component.form.setValue({ email: 'email@email.com', password: '1234567' });
+    fixture.detectChanges();
+
+    expect(component.form.valid).toBeTrue();
+    expect(fixture.nativeElement.querySelectorAll('.ng-invalid').length).toBe(
+      0,
+    );
   });
 });
