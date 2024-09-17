@@ -1,9 +1,24 @@
+import { User } from '@shared/models/user.interface';
 import { delay, of, switchMap, throwError } from 'rxjs';
 
+interface DBUser extends User {
+  password: string;
+}
+
 // DB
-const mockUsers = [
-  { email: 'user@example.com', password: 'user123', role: 'user' },
-  { email: 'admin@example.com', password: 'admin123', role: 'admin' },
+const mockUsers: DBUser[] = [
+  {
+    email: 'user@example.com',
+    password: 'user123',
+    role: 'user',
+    name: 'User',
+  },
+  {
+    email: 'admin@example.com',
+    password: 'admin123',
+    role: 'admin',
+    name: 'Admin',
+  },
 ];
 
 // Emulates a login request
@@ -17,7 +32,10 @@ export const login = (email: string, password: string) => {
 
       if (user) {
         const token = 'some-jwt-token';
-        return of({ email: user.email, role: user.role, token });
+        return of({
+          user: { email: user.email, role: user.role, name: user.name },
+          token,
+        });
       } else {
         return throwError(() => 'User not found');
       }
