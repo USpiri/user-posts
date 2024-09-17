@@ -29,6 +29,9 @@ a.btn {
   &.black {
     @apply bg-neutral-800 text-stone-100 font-medium px-3 py-1.5 hover:bg-neutral-700;
   }
+  &:disabled {
+    @apply opacity-80 active:scale-100;
+  }
 }
 
 .section {

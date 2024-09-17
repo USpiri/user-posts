@@ -1,14 +1,21 @@
+import { NgClass } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LogIn, LucideAngularModule } from 'lucide-angular';
+import { AuthService } from '@shared/services/auth.service';
+import { ToastService } from '@shared/services/toast.service';
+import { LoaderCircle, LogIn, LucideAngularModule } from 'lucide-angular';
 
 @Component({
   selector: 'app-login-form',
   standalone: true,
-  imports: [LucideAngularModule, ReactiveFormsModule],
+  imports: [LucideAngularModule, ReactiveFormsModule, NgClass],
   template: `
-    <form [formGroup]="form" class="flex flex-col gap-3 mt-5">
+    <form
+      [formGroup]="form"
+      class="flex flex-col gap-3 mt-5"
+      (ngSubmit)="onLogin()"
+    >
       <label>
         <span>Email</span>
         <input
@@ -40,32 +47,54 @@ import { LogIn, LucideAngularModule } from 'lucide-angular';
       </label>
 
       <button
-        (click)="onLogin()"
-        type="button"
+        type="submit"
         class="black mt-2 flex items-center justify-center gap-4"
+        [disabled]="loading"
       >
         Login
-        <i-lucide [img]="login" class="w-4 h-4" />
+        <i-lucide
+          [img]="loading ? loadingIcon : login"
+          class="w-5 h-5"
+          [ngClass]="loading ? 'animate-spin' : ''"
+        />
       </button>
     </form>
   `,
 })
 export class LoginFormComponent {
   private router = inject(Router);
+  private auth = inject(AuthService);
+  private toast = inject(ToastService);
   private fb = inject(FormBuilder);
 
+  loading = false;
   form = this.fb.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+    email: ['user@example.com', [Validators.required, Validators.email]],
+    password: ['user1237', [Validators.required, Validators.minLength(6)]],
   });
 
   readonly login = LogIn;
+  readonly loadingIcon = LoaderCircle;
 
   onLogin() {
     this.form.markAllAsTouched();
     if (!this.form.valid) return;
 
-    this.router.navigate(['/']);
+    this.loading = true;
+    const { email, password } = this.form.value;
+    this.auth.login(email!, password!).subscribe({
+      next: () => {
+        this.router.navigate(['/']);
+      },
+      error: (err) => {
+        this.toast.open({
+          title: 'Error',
+          message: `Error: ${err}`,
+          type: 'error',
+        });
+        this.loading = false;
+      },
+    });
   }
 
   getControl(controlName: string) {
