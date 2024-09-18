@@ -7,7 +7,7 @@ import { ChevronRight, LucideAngularModule } from 'lucide-angular';
   standalone: true,
   imports: [LucideAngularModule, NgClass],
   template: `
-    <div class="flex justify-between items-center gap-2 font-mono text-sm">
+    <div class="flex justify-between items-center gap-2 font-mono text-sm px-2">
       <div>Results: {{ totalResults }}</div>
       <div class="flex items-center">
         <button
@@ -31,7 +31,7 @@ import { ChevronRight, LucideAngularModule } from 'lucide-angular';
       <label>
         <select
           (change)="pageSizeChange.emit($event)"
-          class="min-w-16 rounded border border-neutral-300"
+          class="min-w-16 rounded border border-neutral-300 outline-none"
         >
           @for (item of pagesOptions; track $index) {
             <option [value]="item">{{ item }}</option>
@@ -40,7 +40,6 @@ import { ChevronRight, LucideAngularModule } from 'lucide-angular';
       </label>
     </div>
   `,
-  styles: ``,
 })
 export class PaginatorComponent {
   @Input({ required: true }) totalResults = 0;
