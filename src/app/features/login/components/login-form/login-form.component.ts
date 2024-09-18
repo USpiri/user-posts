@@ -68,9 +68,10 @@ export class LoginFormComponent {
   private fb = inject(FormBuilder);
 
   loading = false;
+  // TODO: Delete default values
   form = this.fb.group({
-    email: ['user@example.com', [Validators.required, Validators.email]],
-    password: ['user1237', [Validators.required, Validators.minLength(6)]],
+    email: ['admin@example.com', [Validators.required, Validators.email]],
+    password: ['admin1237', [Validators.required, Validators.minLength(6)]],
   });
 
   readonly login = LogIn;
