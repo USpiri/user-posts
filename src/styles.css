@@ -44,15 +44,15 @@ form {
 
 button,
 a.btn {
-  @apply border rounded-md active:scale-95 transition;
+  @apply rounded-md active:scale-95 transition;
   &.icon {
-    @apply p-1 border-neutral-300 hover:bg-stone-200/50;
+    @apply border p-1 border-neutral-300 hover:bg-stone-200/50;
   }
   &.black {
-    @apply bg-neutral-800 text-stone-100 font-medium px-3 py-1.5 hover:bg-neutral-700;
+    @apply border bg-neutral-800 text-stone-100 font-medium px-3 py-1.5 hover:bg-neutral-700;
   }
   &:disabled {
-    @apply opacity-80 active:scale-100;
+    @apply border opacity-80 active:scale-100;
   }
 }
 
