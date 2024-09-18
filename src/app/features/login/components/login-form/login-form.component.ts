@@ -58,6 +58,13 @@ import { LoaderCircle, LogIn, LucideAngularModule } from 'lucide-angular';
           [ngClass]="loading ? 'animate-spin' : ''"
         />
       </button>
+
+      <a
+        href="https://uspiri.com"
+        target="_blank"
+        class="text-xs font-mono font-bold text-neutral-400 hover:text-neutral-800 transition"
+        >by uspiri</a
+      >
     </form>
   `,
 })
