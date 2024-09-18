@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from '@shared/services/post.service';
-import { LoaderComponent } from '../../../../shared/components/loader/loader.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 import { Post } from '@shared/models/post.interface';
 import { ToastService } from '@shared/services/toast.service';
 
