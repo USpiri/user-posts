@@ -33,7 +33,7 @@ Este proyecto es generado con [Angular CLI](https://github.com/angular/angular-c
 
 > [!NOTE]
 > Hay varios items a destacar, resultado de ser parte de un challange y no una aplicación completa como tal:
-> - Simulación de base de datos y llamados a API de usuarios: [Debajo añado las credenciales](##Usuarios-de-prueba) disponibles. En un entorno real, esta simulación no existiría.
+> - Simulación de base de datos y llamados a API de usuarios: [Debajo añado las credenciales](#Usuarios-de-prueba) disponibles. En un entorno real, esta simulación no existiría.
 > - JWT: Se toma como supuesto que se utiliza un BearerToken, se ha implementado un interceptor que inyecta en la cabecera de las peticiones este token si está disponible.
 > - Testing: En algunos componentes como formularios, guards, etc.
  
