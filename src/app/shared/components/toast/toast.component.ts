@@ -8,7 +8,7 @@ import { ToastService } from '@shared/services/toast.service';
   imports: [NgClass],
   template: `
     <aside
-      class="sm:max-w-sm z-10 w-full absolute top-4 sm:top-[unset] sm:bottom-4 sm:right-4 bg-stone-50 rounded-md shadow px-3 py-1"
+      class="sm:max-w-sm z-10 w-full fixed top-4 sm:top-[unset] sm:bottom-4 sm:right-4 bg-stone-50 rounded-md shadow px-3 py-1"
       [ngClass]="status"
       [class.show]="visible"
     >
