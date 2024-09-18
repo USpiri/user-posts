@@ -8,9 +8,8 @@ describe('SectionHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SectionHeaderComponent]
-    })
-    .compileComponents();
+      imports: [SectionHeaderComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(SectionHeaderComponent);
     component = fixture.componentInstance;
@@ -19,5 +18,15 @@ describe('SectionHeaderComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render a title', () => {
+    const title = 'Some title';
+    component.title = title;
+
+    fixture.detectChanges();
+
+    expect(fixture.nativeElement.querySelector('h1')).toBeTruthy();
+    expect(fixture.nativeElement.querySelector('h1').textContent).toBe(title);
   });
 });

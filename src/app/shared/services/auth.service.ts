@@ -36,7 +36,7 @@ export class AuthService {
     return this.userSubject.value?.role;
   }
 
-  getToken(): string | null {
+  getToken() {
     return localStorage.getItem('token');
   }
 

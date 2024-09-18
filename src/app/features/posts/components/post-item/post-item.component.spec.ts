@@ -8,12 +8,16 @@ describe('PostItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PostItemComponent]
-    })
-    .compileComponents();
+      imports: [PostItemComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PostItemComponent);
     component = fixture.componentInstance;
+
+    fixture.componentRef.setInput('post', {
+      title: 'Post title',
+      body: 'Post body',
+    });
     fixture.detectChanges();
   });
 

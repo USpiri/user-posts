@@ -38,4 +38,15 @@ describe('LoginFormComponent', () => {
       0,
     );
   });
+
+  it('should be invalid when password is less than 6 chars', () => {
+    component.form.setValue({ email: 'email@email.com', password: '12345' });
+    fixture.detectChanges();
+
+    expect(component.form.valid).toBeFalse();
+    expect(component.form.get('password')?.invalid).toBeTruthy();
+    expect(
+      fixture.nativeElement.querySelectorAll('.ng-invalid').length,
+    ).toBeGreaterThan(0);
+  });
 });
