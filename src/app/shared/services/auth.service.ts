@@ -3,8 +3,6 @@ import { User } from '@shared/models/user.interface';
 import { login } from '@shared/utils/auth';
 import { BehaviorSubject, tap } from 'rxjs';
 
-//TODO: Make guard to protect routes
-
 @Injectable({
   providedIn: 'root',
 })
@@ -32,6 +30,10 @@ export class AuthService {
 
   isLoggedIn() {
     return !!localStorage.getItem('token');
+  }
+
+  getUserRole() {
+    return this.userSubject.value?.role;
   }
 
   getToken(): string | null {

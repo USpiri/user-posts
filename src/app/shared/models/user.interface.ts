@@ -1,5 +1,7 @@
 export interface User {
   name: string;
   email: string;
-  role: 'admin' | 'user';
+  role: UserRole;
 }
+
+export type UserRole = 'user' | 'admin';
