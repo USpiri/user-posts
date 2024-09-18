@@ -5,7 +5,7 @@ interface DBUser extends User {
   password: string;
 }
 
-// DB
+// Simulates DB
 const mockUsers: DBUser[] = [
   {
     email: 'user@example.com',
