@@ -1,1 +1,5 @@
-export const environment = {};
+/* DEVELOPMENT Environments */
+export const environment = {
+  production: false,
+  apiURL: 'https://jsonplaceholder.typicode.com',
+};
