@@ -11,6 +11,20 @@
   <br>
 </p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white"/>
+  •
+  <img src="https://img.shields.io/badge/Jasmine-8A4182?style=for-the-badge&logo=Jasmine&logoColor=white" />
+  •
+  <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+  •
+  <img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" />
+  •
+  <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" />
+  •
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+</p>
+
 ## About Users&Posts
 
 Este proyecto es generado con [Angular CLI](https://github.com/angular/angular-cli) version 18.2.4 como aplicación standalone. Implementa un sistema de autenticación basado en roles. Estos roles pueden ser 'user' o 'admin'. Dependiendo del rol, tienen acceso a diferentes funcionalidades, como la visualización, creación o edición de datos obtenidos desde una API externa.
@@ -19,15 +33,17 @@ Este proyecto es generado con [Angular CLI](https://github.com/angular/angular-c
 
 > [!NOTE]
 > Hay varios items a destacar, resultado de ser parte de un challange y no una aplicación completa como tal:
-> - Simulación de base de datos y llamados a API de usuarios: Existe un prqueño archivo que simula se una api y la base de datos para el login de usuarios. [Debajo añado las credenciales](##Usuarios-de-prueba) disponibles. En un entorno real, esta simulación no existiría.
+> - Simulación de base de datos y llamados a API de usuarios: [Debajo añado las credenciales](##Usuarios-de-prueba) disponibles. En un entorno real, esta simulación no existiría.
 > - JWT: Se toma como supuesto que se utiliza un BearerToken, se ha implementado un interceptor que inyecta en la cabecera de las peticiones este token si está disponible.
+> - Testing: En algunos componentes como formularios, guards, etc.
  
 ## 🛠️ Tecnologías utilizadas
 
 - [Angular](https://angular.dev/): Framework principal del proyecto, en su última versión.
 - [Tailwind](https://tailwindcss.com/): Framework css para añadir estilos.
-- [CSS](https://developer.mozilla.org/es/docs/Web/CSS): Aplicación de css moderno con técnicas como nesting o field-sizing.
+- [CSS](https://developer.mozilla.org/es/docs/Web/CSS): Aplicación de css moderno con técnicas como [nesting](https://caniuse.com/css-nesting) o [field-sizing](https://caniuse.com/mdn-css_properties_field-sizing).
 - [Lucide Icons](https://lucide.dev/): Librería de iconos.
+- [Eslint](https://eslint.org/) y [Prettier](https://prettier.io/): Formato y calidad de código.
 
 ## 🚀 Features
 
@@ -107,6 +123,9 @@ src/
 
 ## Instalación y ejecución
 
+> [!WARNING]
+> **Node verion**: 	18.19.1 o mayor.
+
 ### Instalar dependencias
 
 ```
@@ -131,4 +150,7 @@ ng build
 ```
 ng test
 ```
-- Realizado Básico y solo en algunos componentes
+- Realizado en los componentes más relevantes (Formularios, guards, etc.)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7f387fc6-2338-47f1-b134-db08d620a7a7" width='600' align="center">
+</p>
